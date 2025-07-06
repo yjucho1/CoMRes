@@ -146,12 +146,12 @@ class Exp_Main(Exp_Basic):
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
-                    if self.args.model == 'CoMRess':
+                    if self.args.model == 'CoMRes':
                         outputs_l, expert_outputs_l = self.model(batch_x)
                         outputs_u, expert_outputs_u = self.model(batch_u)
                         
                     else:
-                        outputs = self.model(batch_x)
+                        outputs, _ = self.model(batch_x)
                     f_dim = -1 if self.args.features == 'MS' else 0
                     outputs_l = outputs_l[:, -self.args.pred_len:, f_dim:]
                     outputs_u = outputs_u[:, -self.args.pred_len:, f_dim:]
