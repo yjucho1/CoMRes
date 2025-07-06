@@ -135,7 +135,7 @@ class Exp_Main(Exp_Basic):
                 # encoder - decoder
                 if self.args.use_amp:
                     with torch.cuda.amp.autocast():
-                        if self.args.model=='CoMRes':
+                        if self.args.model=='PathFormer':
                             outputs, expert_outputs = self.model(batch_x)
                         else:
                             outputs = self.model(batch_x)
@@ -146,7 +146,7 @@ class Exp_Main(Exp_Basic):
                         loss = criterion(outputs, batch_y)
                         train_loss.append(loss.item())
                 else:
-                    if self.args.model == 'CoMRes':
+                    if self.args.model == 'PathFormer':
                         outputs_l, expert_outputs_l = self.model(batch_x)
                         outputs_u, expert_outputs_u = self.model(batch_u)
                         
