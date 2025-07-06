@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # basic config
     parser.add_argument('--random_seed', type=int, default=1, help='random_seed')
     parser.add_argument('--is_training', type=int, default=1, help='status')
-    parser.add_argument('--model', type=str, default='PathFormer',
+    parser.add_argument('--model', type=str, default='CoMRes',
                         help='model name, options: [PathFormer]')
     parser.add_argument('--model_id', type=str, default="ETT.sh")
 
